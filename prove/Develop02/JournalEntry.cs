@@ -1,22 +1,38 @@
 using System;
 
-public class JournalEntry
+namespace DailyJournal
 {
-    public string _entryNumber = "";
-    public string _dateTime = "";
-    public string _journalPrompt = "";
-    public string _journalEntry = "";
-    public string _journalFile = "";
-
-    public JournalEntry()
+    class Entry
     {
-    }
+        public string _prompt;
+        public string _response;
+        public string _date;
 
-    public void Display()
-    {
-        Console.WriteLine($"{_entryNumber} - {_dateTime}");
-        Console.WriteLine($"{_journalPrompt}");
-        Console.WriteLine($"{_journalEntry}");
+        public Entry(string prompt, string response, string date)
+        {
+            _prompt = prompt;
+            _response = response;
+            _date = date;
+        }
+
+        public string GetPrompt()
+        {
+            return _prompt;
+        }
+
+        public string GetResponse()
+        {
+            return _response;
+        }
+
+        public string GetDate()
+        {
+            return _date;
+        }
+
+        public override string ToString()
+        {
+            return $"Date: {_date} - Prompt: {_prompt} \n{_response}\n";
+        }
     }
 }
-
